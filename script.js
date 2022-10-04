@@ -86,26 +86,34 @@ console.log(playerDeck)
 
 console.log(playerDeck.some(ele => cpuDeck.includes(ele)))
 
-function pickRandomProperty(obj) {
-    var prop, len = 0, randomPos, pos = 0;
-    for (prop in obj) {
-        if (obj.hasOwnProperty(prop)) {
-            len += 1;
-        }
-    }
-// console.log(startPlayer2.some(ele => startPlayer1.includes(ele)))
-
-
-    randomPos = Math.floor(Math.random() * len);
-    for (prop in obj) {
-    if (obj.hasOwnProperty(prop)) {
-        if (pos === randomPos) {
-            return prop;
-        }
-        pos += 1;
-    }
-}       
+function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
 }
+
+let shuffledCpuDeck = shuffle(cpuDeck)
+let shuffledPlayerDeck = shuffle(playerDeck)
+
+// console.log(shuffle(playerDeck))
+
+
+// function pickRandomProperty(obj) {
+//     var prop, len = 0, randomPos, pos = 0;
+//     for (prop in obj) {
+//         if (obj.hasOwnProperty(prop)) {
+//             len += 1;
+//         }
+//     }
+
+//     randomPos = Math.floor(Math.random() * len);
+//     for (prop in obj) {
+//     if (obj.hasOwnProperty(prop)) {
+//         if (pos === randomPos) {
+//             return prop;
+//         }
+//         pos += 1;
+//     }
+// }       
+// }
 
 // for(let i = 0;i<26;i++){
 //     cpuDeck.push(pickRandomProperty(Cards))
@@ -120,17 +128,49 @@ let playerCard = document.querySelector('#player-card')
 let playerScore = document.querySelector('#player-score')
 let dealBtn = document.querySelector('.deal')
 
-dealBtn.addEventListener('click', winRound)
+//dealBtn.addEventListener('click', winRound)
 
-console.log(cpuCard.className)
-let count = 0
-function winRound(e) {
-    count++
-    console.log('winRound')
-    if(Cards[cpuCard.classList[2]] > Cards[playerCard.classList[2]]){
-        cpuScore.innerText = ` Score: ${count}`
-    } else if(Cards[playerCard.classList[2]] > Cards[cpuCard.classList[2]]) {
-        playerScore.innerText = ` Score: ${count}`
+// console.log(cpuCard.className)
+// let count = 0
+// function winRound(e) {
+//     count++
+//     console.log('winRound')
+//     if(Cards[cpuCard.classList[2]] > Cards[playerCard.classList[2]]){
+//         cpuScore.innerText = ` Score: ${count}`
+//     } else if(Cards[playerCard.classList[2]] > Cards[cpuCard.classList[2]]) {
+//         playerScore.innerText = ` Score: ${count}`
 
+//     }
+// }
+
+let scoreOfCpu = ()=>{return shuffledCpuDeck.length}
+let scoreOfPlayer = ()=> {return shuffledPlayerDeck.length}
+console.log(scoreOfCpu())
+console.log(scoreOfPlayer())
+
+// console.log(shuffle(playerDeck)[0]<shuffle(cpuDeck)[0])
+
+dealBtn.addEventListener('click', playingTheGame)
+
+function playingTheGame(e){
+    if(shuffledPlayerDeck[0]>shuffledCpuDeck[0]){
+        shuffledPlayerDeck.push(shuffledCpuDeck.shift())
+        scoreOfPlayer()
+        scoreOfCpu()
+        cpuScore.innerText = ` Score: ${scoreOfCpu()}`
+        playerScore.innerText = ` Score: ${scoreOfPlayer()
+        }`
+        shuffledCpuDeck
+        shuffledPlayerDeck
+    }
+    else if(shuffledPlayerDeck[0]<shuffledCpuDeck[0]){
+        shuffledCpuDeck.push(shuffledPlayerDeck.shift())
+        scoreOfPlayer()
+        scoreOfCpu()
+        cpuScore.innerText = ` Score: ${scoreOfCpu()}`
+        playerScore.innerText = ` Score: ${scoreOfPlayer()
+        }`
+        shuffledCpuDeck
+        shuffledPlayerDeck
     }
 }
