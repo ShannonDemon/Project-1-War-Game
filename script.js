@@ -56,9 +56,68 @@ Cards = {
     dK: 13,
     dA: 14,
 }
+
+// const cards = [all 52 cards]
+// let dealerDeck = cards (or just retype all 52 cards if you want)
+// let playerDeck = [] (starts empty)
+// while(dealerDeck.length>26){
+// // pick a random number between 0 and dealerDeck.length
+// // splice out the card at dealerDeck[randumNum]
+// // push that card into playerDeck
+// }
+const cardList = []
+for(x in Cards){
+    cardList.push(x)
+}
+console.log(cardList)
+
+let cpuDeck = cardList
+console.log(cpuDeck)
+let playerDeck = []
+
+
+while(cpuDeck.length>26){
+    randNumb = Math.floor(Math.random() *cpuDeck.length)
+    playerDeck.push(cpuDeck.splice(randNumb,1)[0])
+}
+
+console.log(cpuDeck)
+console.log(playerDeck)
+
+console.log(playerDeck.some(ele => cpuDeck.includes(ele)))
+
+function pickRandomProperty(obj) {
+    var prop, len = 0, randomPos, pos = 0;
+    for (prop in obj) {
+        if (obj.hasOwnProperty(prop)) {
+            len += 1;
+        }
+    }
+// console.log(startPlayer2.some(ele => startPlayer1.includes(ele)))
+
+
+    randomPos = Math.floor(Math.random() * len);
+    for (prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+        if (pos === randomPos) {
+            return prop;
+        }
+        pos += 1;
+    }
+}       
+}
+
+// for(let i = 0;i<26;i++){
+//     cpuDeck.push(pickRandomProperty(Cards))
+//     // if(cpuDeck.some(ele => cpuDeck.includes(ele))){
+//     //     }
+// }
+
+
 let cpuCard = document.querySelector('#cpu-card')
 let cpuScore = document.querySelector('#cpu-score')
 let playerCard = document.querySelector('#player-card')
+let playerScore = document.querySelector('#player-score')
 let dealBtn = document.querySelector('.deal')
 
 dealBtn.addEventListener('click', winRound)
@@ -70,8 +129,8 @@ function winRound(e) {
     console.log('winRound')
     if(Cards[cpuCard.classList[2]] > Cards[playerCard.classList[2]]){
         cpuScore.innerText = ` Score: ${count}`
-    } else {
-        // cpuScore.innerText = ` Score: ${count}`
+    } else if(Cards[playerCard.classList[2]] > Cards[cpuCard.classList[2]]) {
+        playerScore.innerText = ` Score: ${count}`
 
     }
 }
