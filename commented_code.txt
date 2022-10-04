@@ -1,0 +1,89 @@
+// let cardsDeck = ["2-C", "3-", "4-C", "5-C", "6-C", "7-C", "8-C", "9-C", "10-C", "J-C", "Q-C", "K-C", "A-C",
+//   "2-S", "3-S", "4-S", "5-S", "6-S", "7-S", "8-S", "9-S", "10-S", "J-S", "Q-S", "K-S", "A-S",
+//   "2-H", "3-H", "4-H", "5-H", "6-H", "7-H", "8-H", "9-H", "10-H", "J-H", "Q-H", "K-H", "A-H",
+//   "2-D", "3-D", "4-D", "5-D", "6-D", "7-D", "8-D", "9-D", "10-D", "J-D", "Q-D", "K-D", "A-D"]
+// C: Clubs, S: Spades, H: Hearts, D: Diamonds
+
+
+// const suitNames = ['Clubs', 'Spades', 'Hearts', 'Diamonds']
+// const values = [2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+// const cardNames = ['two','three','four','five','six','seven','eight','nine','ten','jack','queen','king', 'ace', 'Joker']
+// const cardsDeck = {}
+// for(let i = 0;i<14;i++){
+//   cardsDeckKey = cardNames[i]
+//   cardsDeck[cardsDeckKey] = values[i]
+// }
+// console.log(cardsDeck)
+
+// let player1 = {}
+// for(let i = 0;i<13;i++){
+//   player1[cardNames]
+// }
+
+// let player1 = []
+// for (let i = 0; i < cardsDeck.length / 2; i++) {
+//   player1.push(cardsDeck[Math.floor(Math.random() * cardsDeck.length)])
+//   if (player1.some(ele => cardsDeck.includes(ele)) === false) {
+//     player1.push(cardsDeck[Math.floor(Math.random() * deck.length)])
+//   }
+// }
+
+// console.log(player1)
+
+// let player2 = []
+// for (let i = 0; i < cardsDeck.length / 2; i++) {
+//   player2.push(cardsDeck[Math.floor(Math.random() * cardsDeck.length)])
+
+// }
+
+// console.log(player2)
+
+// console.log(player2.some(ele => player1.includes(ele)))
+
+
+// let array1 = ['a', 'b', 'c', 'd', 'e'], array2 = ['a', 'b'];
+
+// console.log(startPlayer2.some(ele => startPlayer1.includes(ele)))
+
+// console.log(intersection(player1, player2))
+
+// The Game : when you click on Play or Deal
+
+// function Shuffle(array) {
+//   let currentIndex = array.length, randomIndex;
+
+//   // While there remain elements to shuffle.
+//   while (currentIndex != 0) {
+
+//     // Pick a remaining element.
+//     randomIndex = Math.floor(Math.random() * currentIndex);
+//     currentIndex--;
+
+//     // And swap it with the current element.
+//     [array[currentIndex], array[randomIndex]] = [
+//       array[randomIndex], array[currentIndex]];
+//   }
+
+//   return array;
+// }
+// shuffled_List = Shuffle(player1)
+// console.log(shuffled_List)
+
+// const Deal = (){
+//   shuffle()
+//   gameAndWar()
+// }
+
+// let gameAndWar = ()=>{
+//   if(player1[0]>player2[0]){
+//     player1Points ++
+//     player1.push()
+//     player2.pop()
+// } else if(player2[0]>player1[0]){
+//     player2Points ++
+//     player2.push()
+//     player1.pop()
+// } else if (player1[0]=player2[0]){
+//    // the case of war 
+// }
+// }  
