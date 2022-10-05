@@ -87,11 +87,11 @@ console.log(playerDeck)
 console.log(playerDeck.some(ele => cpuDeck.includes(ele)))
 
 function shuffle(array) {
-    return array.sort(() => Math.random() - 0.5);
+    return array.sort(() => Math.random()*0.5);
 }
 
-let shuffledCpuDeck = shuffle(cpuDeck)
-let shuffledPlayerDeck = shuffle(playerDeck)
+let shuffledCpuDeck = shuffle(shuffle(cpuDeck))
+let shuffledPlayerDeck = shuffle(shuffle(playerDeck))
 
 // console.log(shuffle(playerDeck))
 
@@ -162,6 +162,7 @@ function playingTheGame(e){
         }`
         shuffledCpuDeck
         shuffledPlayerDeck
+        
     }
     else if(shuffledPlayerDeck[0]<shuffledCpuDeck[0]){
         shuffledCpuDeck.push(shuffledPlayerDeck.shift())
@@ -172,5 +173,69 @@ function playingTheGame(e){
         }`
         shuffledCpuDeck
         shuffledPlayerDeck
+        
     }
+    else if(shuffledPlayerDeck[0]=== shuffledCpuDeck[0]){
+        if(shuffledPlayerDeck[2] > shuffledCpuDeck[2]){
+            if(shuffledPlayerDeck.length<3){
+                shuffledPlayerDeck.push(shuffledCpuDeck.shift())
+                shuffledPlayerDeck.push(shuffledCpuDeck.shift())
+                scoreOfPlayer()
+                scoreOfCpu()
+                cpuScore.innerText = ` Score: ${scoreOfCpu()}`
+                playerScore.innerText = ` Score: ${scoreOfPlayer()}`
+                shuffledCpuDeck
+                shuffledPlayerDeck
+            } else if(shuffledCpuDeck.length<3){
+                shuffledCpuDeck.push(shuffledPlayerDeck.shift())
+                shuffledCpuDeck.push(shuffledPlayerDeck.shift())
+                scoreOfPlayer()
+                scoreOfCpu()
+                cpuScore.innerText = ` Score: ${scoreOfCpu()}`
+                playerScore.innerText = ` Score: ${scoreOfPlayer()}`
+                shuffledCpuDeck
+                shuffledPlayerDeck
+            }
+            shuffledPlayerDeck.push(shuffledCpuDeck.shift())
+            shuffledPlayerDeck.push(shuffledCpuDeck.shift())
+            shuffledPlayerDeck.push(shuffledCpuDeck.shift())
+            scoreOfPlayer()
+            scoreOfCpu()
+            cpuScore.innerText = ` Score: ${scoreOfCpu()}`
+            playerScore.innerText = ` Score: ${scoreOfPlayer()}`
+            shuffledCpuDeck
+            shuffledPlayerDeck
+        }
+        else if(shuffledPlayerDeck[2] < shuffledCpuDeck[2]){
+            if(shuffledPlayerDeck.length<3){
+                shuffledPlayerDeck.push(shuffledCpuDeck.shift())
+                shuffledPlayerDeck.push(shuffledCpuDeck.shift())
+                scoreOfPlayer()
+                scoreOfCpu()
+                cpuScore.innerText = ` Score: ${scoreOfCpu()}`
+                playerScore.innerText = ` Score: ${scoreOfPlayer()}`
+                shuffledCpuDeck
+                shuffledPlayerDeck
+            } else if(shuffledCpuDeck.length<3){
+                shuffledCpuDeck.push(shuffledPlayerDeck.shift())
+                shuffledCpuDeck.push(shuffledPlayerDeck.shift())
+                scoreOfPlayer()
+                scoreOfCpu()
+                cpuScore.innerText = ` Score: ${scoreOfCpu()}`
+                playerScore.innerText = ` Score: ${scoreOfPlayer()}`
+                shuffledCpuDeck
+                shuffledPlayerDeck
+            }
+            shuffledCpuDeck.push(shuffledPlayerDeck.shift())
+            shuffledCpuDeck.push(shuffledPlayerDeck.shift())
+            shuffledCpuDeck.push(shuffledPlayerDeck.shift())
+            scoreOfPlayer()
+            scoreOfCpu()
+            cpuScore.innerText = ` Score: ${scoreOfCpu()}`
+            playerScore.innerText = ` Score: ${scoreOfPlayer()}`
+            shuffledCpuDeck
+            shuffledPlayerDeck
+            }
+    }
+    
 }
