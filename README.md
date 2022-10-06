@@ -14,3 +14,6 @@ Things to add and improve:
 - make it more interactive. 
 - Using OOP.
 
+
+[Live link for game](http://127.0.0.1:5501/index.html)
+
